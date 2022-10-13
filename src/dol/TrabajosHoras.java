@@ -5,15 +5,6 @@ public class TrabajosHoras {
 	private double Horas;
 	private double HorasExtras;
 	
-	public TrabajosHoras() {
-		
-	}
-	
-	public TrabajosHoras(double horas, double horasExtras) {
-		Horas = horas;
-		HorasExtras = horasExtras;
-	}
-	
 	public double getHoras() {
 		return Horas;
 	}

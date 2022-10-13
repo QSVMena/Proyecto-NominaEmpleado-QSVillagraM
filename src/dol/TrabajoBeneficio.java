@@ -5,17 +5,6 @@ public class TrabajoBeneficio {
 	private double Comisiones;
 	private double Bonificaciones;
 	
-	
-	public TrabajoBeneficio() {
-		
-	}
-	
-	public TrabajoBeneficio(double comision, double bonificacion) {
-		Comisiones = comision;
-		Bonificaciones = bonificacion;
-		
-	}
-	
 	public double getComisiones() {
 		return Comisiones;
 	}
@@ -31,7 +20,4 @@ public class TrabajoBeneficio {
 	public void setBonificaciones(double bonificaciones) {
 		Bonificaciones = bonificaciones;
 	}
-	
-	
-	
 }

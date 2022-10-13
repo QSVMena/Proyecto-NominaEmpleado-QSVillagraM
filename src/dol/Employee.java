@@ -2,11 +2,16 @@ package dol;
 
 import java.util.UUID;
 
+// La clase Employye hereda de la clase persona
+// y hereda todos sus atributos
 public class Employee extends Person {
 
 	private double SalarioMensualBruto;
+	//clases atributos
 	private TrabajoBeneficio Beneficios;
 	private TrabajosHoras Horas;
+	//atributo para el borrado logico,true: activo,false:inactivo
+	
 	private boolean isActivo;
 	
 	public boolean isActivo() {

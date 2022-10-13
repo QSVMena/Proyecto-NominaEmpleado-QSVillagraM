@@ -54,9 +54,8 @@ public class Validacion {
 		do {
 			try {
 				System.out.print(mensaje);
-				//String dato= scan.nextLine();
-				num= scan.nextInt();
-				scan.nextLine();
+				String Value=scan.nextLine();
+				num= Integer.parseInt(Value);
 				if(num >= inicial && num <= Final ) {
 					Valor = false;
 				}else {

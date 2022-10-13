@@ -12,14 +12,10 @@ import ui.Validacion;
 
 public class GestionEmployee {
 	
-	private static NominaEmployee nomina;
 	private static Scanner scan;
-	private static Archivos archivo;
-
+	
 	public GestionEmployee(Scanner scan) {
-		nomina = new NominaEmployee();
 		this.scan= scan;
-		archivo = new Archivos();
 	}
 	
 	public static Employee DatosdelEmpleado() {
@@ -29,6 +25,7 @@ public class GestionEmployee {
 		empleado.setSecondName2(Validacion.ValidateString("Ingresar nombre 2 > ", "error", scan));
 		empleado.setLastname1(Validacion.ValidateString("Ingresar Apellido 1 > ", "error", scan));
 		empleado.setLastname2(Validacion.ValidateString("Ingresar Apellido > ", "error", scan));
+		empleado.setSalarioMensualBruto(Validacion.ValidateDouble("Ingresar Salario > ", "error", scan));
 		empleado.setActivo(true);
 		
 		TrabajosHoras horas = new TrabajosHoras();
@@ -44,23 +41,33 @@ public class GestionEmployee {
 		return empleado;
 	}
 	
-	/*public static void PrintNominaEmployee() {
-		
-			System.out.println("=============================================================");
-			System.out.println(e.getFirstName1()+" "+ e.getSecondName2()+" "+nomina.SalarioMensual());
-			System.out.println(" >Horas Extras: "+nomina.GetHorasExtras()+" >Monto Horas Extras: "+nomina.CalculoHorasExtras());
-			System.out.println(" >Comisiones: "+nomina.GetComisiones()+"   >Bonificaciones: "+nomina.GetBonificaciones());
-			System.out.println(" >Total Ingresos: "+nomina.CalculoTotalIngresos());
-			System.out.println(" >INSS Laboral: "+nomina.CalculoINSSMensual()+" >IR Laboral: "+nomina.CalcularIRPatronalMensual());
-			System.out.println("=============================================================");
-			System.out.println("\n");
-
-	}*/
-	
 	public static void PrintEmpleado(Employee empleado) {
+		System.out.println("");
 		System.out.println("id: "+empleado.getId());
 		System.out.println("Nombre: "+empleado.getFirstName1());
-		System.out.println("2do nombre: "+empleado.getLastname1());
+		System.out.println("2do Nombre: "+empleado.getSecondName2());
+		System.out.println("1er Apellido: "+empleado.getLastname1());
+		System.out.println("2do Apellido: "+empleado.getLastname2());
+		System.out.println("Horas: "+empleado.getHoras().getHoras());
+		System.out.println("Horas extras: "+empleado.getHoras().getHorasExtras());
+		System.out.println("Comisiones: "+empleado.getBeneficios().getComisiones());
+		System.out.println("beneficios: "+empleado.getBeneficios().getBonificaciones());
 	}
+	
+	public static void PrintEmpleadoNomina(Employee empleado) {
+		
+		NominaEmployee nominaEmploye = new NominaEmployee();
+		nominaEmploye.SetEmployee(empleado);
+		System.out.println(" ");
+		System.out.println("Nombre Completo: "+empleado.getFirstName1()+" "+empleado.getLastname1());
+        System.out.println("Salario Mensual: "+nominaEmploye.SalarioMensual());
+		System.out.println("Horas: "+empleado.getHoras().getHoras()+" Horas Extras "+empleado.getHoras().getHorasExtras()+" Monto: "+nominaEmploye.CalculoHorasExtras());
+		System.out.println("Comisiones: "+empleado.getBeneficios().getComisiones()+" "+empleado.getBeneficios().getBonificaciones()+" Monto: "+nominaEmploye.CalculoTotalBeneficios());
+		System.out.println("TotalIngresos: "+nominaEmploye.CalculoTotalIngresos());
+		System.out.println("INSS LABORAL:"+nominaEmploye.CalculoINSSMensual());
+		System.out.println("Salario Total: "+nominaEmploye.SalarioTotal());
+	}
+	
+	
 	
 }

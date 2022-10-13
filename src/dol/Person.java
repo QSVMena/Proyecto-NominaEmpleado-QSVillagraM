@@ -3,17 +3,23 @@ package dol;
 import java.util.UUID;
 
 //las clases abstractas no se pueden instanciar.
+//Es una clase base y no se pueden crear objetos
 public abstract class Person {
 	
+	//Atributos
 	private UUID Id;
 	private String firstName1;
 	private String secondName2;
 	private String Lastname1;
 	private String Lastname2;
 	
+	//funciones get y set
+	//set : para darle un valor al atributo
+	//get: para retornar el atributo.
 	public UUID getId() {
 		return Id;
 	}
+	
 	public void setId(UUID id) {
 		Id = id;
 	}
